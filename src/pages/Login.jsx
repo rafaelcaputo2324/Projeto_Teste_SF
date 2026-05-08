@@ -1,15 +1,18 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./../styles/login.css";
 
 function Login() {
+  const navigate = useNavigate();
+
   function handleLogin(e) {
     e.preventDefault();
 
-    alert("Login realizado!");
+    navigate("/dashboard");
   }
 
   return (
     <div className="container-login">
+
       <div className="left-login">
         <h1>LoginPlus</h1>
 
@@ -25,11 +28,13 @@ function Login() {
         <input
           type="email"
           placeholder="Email"
+          required
         />
 
         <input
           type="password"
           placeholder="Senha"
+          required
         />
 
         <button type="submit">
@@ -38,11 +43,13 @@ function Login() {
 
         <p className="register-text">
           Não possui conta?
+
           <Link to="/cadastro">
             Criar conta
           </Link>
         </p>
       </form>
+
     </div>
   );
 }
