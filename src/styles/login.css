@@ -6,97 +6,93 @@
 }
 
 body {
-  background: #0f172a;
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #4f46e5,
+    #7c3aed
+  );
+
+  min-height: 100vh;
+  color: white;
 }
+
+/* LOGIN */
 
 .container-login {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
 
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: center;
 
-  padding: 80px;
+  gap: 50px;
+  padding: 20px;
 
-  background:
-    linear-gradient(
-      135deg,
-      #0f172a,
-      #1e3a8a,
-      #2563eb
-    );
+  flex-wrap: wrap;
 }
 
 .left-login {
-  color: white;
-  max-width: 500px;
+  max-width: 400px;
 }
 
 .left-login h1 {
-  font-size: 64px;
-  margin-bottom: 20px;
+  font-size: 52px;
+  margin-bottom: 15px;
 }
 
 .left-login p {
-  font-size: 22px;
-  line-height: 35px;
+  font-size: 18px;
+  color: #f1f1f1;
 }
 
 .card-login {
-  width: 400px;
+  width: 100%;
+  max-width: 400px;
 
-  background: rgba(255,255,255,0.12);
+  background: rgba(255, 255, 255, 0.12);
 
   backdrop-filter: blur(10px);
 
-  padding: 40px;
+  padding: 35px;
 
-  border-radius: 24px;
+  border-radius: 16px;
 
   display: flex;
   flex-direction: column;
-  gap: 18px;
 
-  border: 1px solid rgba(255,255,255,0.2);
+  gap: 15px;
 
-  box-shadow:
-    0 8px 32px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
 }
 
 .card-login h2 {
-  color: white;
-  font-size: 32px;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 .card-login input {
-  padding: 16px;
+  width: 100%;
+
+  padding: 12px;
 
   border: none;
-  border-radius: 12px;
+  border-radius: 8px;
 
   outline: none;
-
-  background: rgba(255,255,255,0.15);
-
-  color: white;
 
   font-size: 16px;
 }
 
-.card-login input::placeholder {
-  color: rgba(255,255,255,0.7);
-}
-
 .card-login button {
-  padding: 16px;
+  padding: 12px;
 
   border: none;
-  border-radius: 12px;
+  border-radius: 8px;
 
-  background: white;
-
-  color: #1e3a8a;
+  background: #ffffff;
+  color: #4f46e5;
 
   font-size: 16px;
   font-weight: bold;
@@ -107,19 +103,207 @@ body {
 }
 
 .card-login button:hover {
-  transform: translateY(-2px);
-}.register-text {
-  color: white;
+  opacity: 0.85;
+  transform: scale(1.02);
+}
+
+.register-text {
   text-align: center;
 }
 
 .register-text a {
-  color: #93c5fd;
   margin-left: 5px;
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* NAVBAR */
+
+.navbar {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 20px 30px;
+
+  background: rgba(0, 0, 0, 0.2);
+
+  backdrop-filter: blur(10px);
+
+  flex-wrap: wrap;
+}
+
+.navbar h2 {
+  font-size: 28px;
+}
+
+.navbar div {
+  display: flex;
+  gap: 20px;
+}
+
+.navbar a {
+  color: white;
   text-decoration: none;
   font-weight: bold;
 }
 
-.register-text a:hover {
-  text-decoration: underline;
+/* DASHBOARD */
+
+.dashboard {
+  padding: 30px;
+}
+
+.dashboard h1 {
+  margin-bottom: 20px;
+}
+
+.cards {
+  display: flex;
+  gap: 20px;
+
+  flex-wrap: wrap;
+}
+
+.card {
+  flex: 1;
+  min-width: 220px;
+
+  background: rgba(255,255,255,0.12);
+
+  backdrop-filter: blur(10px);
+
+  padding: 25px;
+
+  border-radius: 16px;
+
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.card h2 {
+  margin-bottom: 10px;
+}
+
+/* PRODUTOS */
+
+.products {
+  padding: 30px;
+}
+
+.products h1 {
+  margin-bottom: 20px;
+}
+
+.form-product {
+  display: flex;
+  gap: 10px;
+
+  margin-bottom: 20px;
+
+  flex-wrap: wrap;
+}
+
+.form-product input {
+  flex: 1;
+  min-width: 220px;
+
+  padding: 12px;
+
+  border: none;
+  border-radius: 8px;
+
+  outline: none;
+}
+
+.form-product button {
+  padding: 12px 20px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: white;
+  color: #4f46e5;
+
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+.product-item {
+  background: rgba(255,255,255,0.12);
+
+  backdrop-filter: blur(10px);
+
+  padding: 15px;
+
+  border-radius: 12px;
+
+  margin-bottom: 10px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 10px;
+}
+
+.product-item button {
+  padding: 8px 15px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: crimson;
+  color: white;
+
+  cursor: pointer;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 768px) {
+  .container-login {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .left-login h1 {
+    font-size: 40px;
+  }
+
+  .navbar {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .cards {
+    flex-direction: column;
+  }
+
+  .form-product {
+    flex-direction: column;
+  }
+
+  .form-product button {
+    width: 100%;
+  }
+}
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 45px;
+  height: 45px;
+
+  object-fit: cover;
+
+  border-radius: 50%;
 }
