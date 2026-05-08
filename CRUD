@@ -1,0 +1,65 @@
+// CREATE
+
+// Inserir rsuario:
+
+INSERT INTO usuarios (nome, email, senha)
+VALUES ('João', 'joao@gmail.com', '123456');
+
+// Inserir produto:
+
+INSERT INTO produtos (
+    nome_produto,
+    descricao,
+    preco,
+    quantidade_estoque,
+    id_usuario
+)
+VALUES (
+    'Mouse Gamer',
+    'Mouse RGB',
+    120.00,
+    10,
+    1
+);
+
+
+
+// READ
+
+// Consultar usuario:
+
+SELECT * FROM usuarios;
+
+// Consultar Produto: 
+
+SELECT * FROM produtos;
+
+
+
+// UPDATE
+
+// Atualizar usuario:
+
+UPDATE usuarios
+SET nome = 'João Silva'
+WHERE id_usuario = 1;
+
+// Atualizar produto: 
+
+UPDATE produtos
+SET preco = 150.00
+WHERE id_produto = 1;
+
+
+
+//DELETE
+
+// Excluir usuario:
+
+DELETE FROM usuarios
+WHERE id_usuario = 1;
+
+// Excluir produto:
+
+DELETE FROM produtos
+WHERE id_produto = 1;
