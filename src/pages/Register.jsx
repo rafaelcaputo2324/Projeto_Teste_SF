@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import "./../styles/login.css";
 
 function Register() {
   const [nome, setNome] = useState("");
@@ -9,18 +10,22 @@ function Register() {
   function handleRegister(e) {
     e.preventDefault();
 
-    if (!nome || !email || !senha) {
-      alert("Preencha todos os campos");
-      return;
-    }
-
-    alert("Usuário cadastrado!");
+    alert("Conta criada!");
   }
 
   return (
     <div className="container-login">
+      <div className="left-login">
+        <h1>LoginPlus</h1>
+
+        <p>
+          Crie sua conta para acessar
+          o sistema.
+        </p>
+      </div>
+
       <form className="card-login" onSubmit={handleRegister}>
-        <h1>Cadastrar</h1>
+        <h2>Cadastrar</h2>
 
         <input
           type="text"
@@ -40,10 +45,15 @@ function Register() {
           onChange={(e) => setSenha(e.target.value)}
         />
 
-        <button type="submit">Cadastrar</button>
+        <button type="submit">
+          Criar Conta
+        </button>
 
-        <p>
-          Já possui conta? <Link to="/">Login</Link>
+        <p className="register-text">
+          Já possui conta?
+          <Link to="/">
+            Fazer login
+          </Link>
         </p>
       </form>
     </div>
