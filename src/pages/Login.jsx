@@ -1,28 +1,21 @@
-import { useState } from "react";
+import { Link } from "react-router-dom";
 import "./../styles/login.css";
 
 function Login() {
-  const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
-
   function handleLogin(e) {
     e.preventDefault();
 
-    if (!email || !senha) {
-      alert("Preencha todos os campos");
-      return;
-    }
-
-    alert("Login realizado com sucesso!");
+    alert("Login realizado!");
   }
 
   return (
     <div className="container-login">
       <div className="left-login">
         <h1>LoginPlus</h1>
+
         <p>
-          Sistema de cadastro de usuários e produtos
-          com autenticação segura.
+          Faça login para acessar
+          o sistema.
         </p>
       </div>
 
@@ -31,23 +24,24 @@ function Login() {
 
         <input
           type="email"
-          placeholder="Digite seu email"
-          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Email"
         />
 
         <input
           type="password"
-          placeholder="Digite sua senha"
-          onChange={(e) => setSenha(e.target.value)}
+          placeholder="Senha"
         />
 
         <button type="submit">
           Entrar
         </button>
 
-        <span>
-          © 2026 LoginPlus
-        </span>
+        <p className="register-text">
+          Não possui conta?
+          <Link to="/cadastro">
+            Criar conta
+          </Link>
+        </p>
       </form>
     </div>
   );
