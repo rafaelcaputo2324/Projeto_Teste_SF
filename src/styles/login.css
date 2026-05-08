@@ -14,8 +14,8 @@ body {
   height: 100vh;
 
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 
   padding: 80px;
 
@@ -39,9 +39,8 @@ body {
 }
 
 .left-login p {
-  font-size: 20px;
-  opacity: 0.9;
-  line-height: 30px;
+  font-size: 22px;
+  line-height: 35px;
 }
 
 .card-login {
@@ -49,7 +48,7 @@ body {
 
   background: rgba(255,255,255,0.12);
 
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(10px);
 
   padding: 40px;
 
@@ -68,7 +67,6 @@ body {
 .card-login h2 {
   color: white;
   font-size: 32px;
-  margin-bottom: 10px;
 }
 
 .card-login input {
@@ -97,6 +95,7 @@ body {
   border-radius: 12px;
 
   background: white;
+
   color: #1e3a8a;
 
   font-size: 16px;
@@ -109,11 +108,18 @@ body {
 
 .card-login button:hover {
   transform: translateY(-2px);
-  opacity: 0.9;
+}.register-text {
+  color: white;
+  text-align: center;
 }
 
-.card-login span {
-  color: rgba(255,255,255,0.7);
-  text-align: center;
-  margin-top: 10px;
+.register-text a {
+  color: #93c5fd;
+  margin-left: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.register-text a:hover {
+  text-decoration: underline;
 }
