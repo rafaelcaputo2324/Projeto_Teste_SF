@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastrar Produto</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="simple-container">
+
+    <div class="logo-small">
+      ⚡
+    </div>
+
+    <h1>Cadastrar Produto</h1>
+
+    <form onsubmit="salvarProduto(event)">
+
+      <input
+        type="text"
+        id="nomeProduto"
+        placeholder="Nome do produto"
+        required
+      >
+
+      <input
+        type="number"
+        id="precoProduto"
+        placeholder="Preço"
+        required
+      >
+
+      <input
+        type="text"
+        id="categoriaProduto"
+        placeholder="Categoria"
+        required
+      >
+
+      <button type="submit">
+        Salvar Produto
+      </button>
+
+    </form>
+
+    <a class="voltar" href="produtos.html">
+      ← Voltar
+    </a>
+
+  </div>
+
+  <script>
+
+    let produtos =
+    JSON.parse(localStorage.getItem("produtos")) || [];
+
+    let editarIndex =
+    localStorage.getItem("editarIndex");
+
+    if(editarIndex !== null){
+
+      document.getElementById("nomeProduto").value =
+      produtos[editarIndex].nome;
+
+      document.getElementById("precoProduto").value =
+      produtos[editarIndex].preco;
+
+      document.getElementById("categoriaProduto").value =
+      produtos[editarIndex].categoria;
+
+    }
+
+    function salvarProduto(event){
+
+      event.preventDefault();
+
+      let nome =
+      document.getElementById("nomeProduto").value;
+
+      let preco =
+      document.getElementById("precoProduto").value;
+
+      let categoria =
+      document.getElementById("categoriaProduto").value;
+
+      if(editarIndex !== null){
+
+        produtos[editarIndex] = {
+          nome,
+          preco,
+          categoria
+        };
+
+        localStorage.removeItem("editarIndex");
+
+      }else{
+
+        produtos.push({
+          nome,
+          preco,
+          categoria
+        });
+
+      }
+
+      localStorage.setItem(
+        "produtos",
+        JSON.stringify(produtos)
+      );
+
+      window.location.href =
+      "produtos.html";
+
+    }
+
+  </script>
+
+</body>
+</html>

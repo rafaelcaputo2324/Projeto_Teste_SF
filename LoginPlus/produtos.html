@@ -1,0 +1,235 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Dashboard - LoginPlus</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="dashboard-body">
+
+<div class="navbar">
+
+  <div class="logo-navbar">
+
+    <h2>⚡ LoginPlus</h2>
+
+    <div class="inicio">
+      🏠 Início
+    </div>
+
+  </div>
+
+  <div class="menu-navbar">
+
+    <div class="usuario">
+      👤 Usuário
+    </div>
+
+    <button
+      class="sair"
+      onclick="sair()"
+    >
+      Sair
+    </button>
+
+  </div>
+
+</div>
+
+    
+
+  <div class="container-produtos">
+
+    <div class="topo-produtos">
+
+      <div>
+
+        <h1>Produtos Cadastrados</h1>
+
+        <p>
+          Gerencie os produtos do sistema
+        </p>
+
+      </div>
+
+      <button
+        class="novo-btn"
+        onclick="novoProduto()"
+      >
+        + Novo Produto
+      </button>
+
+    </div>
+
+    <div class="tabela">
+
+      <table>
+
+        <thead>
+
+          <tr>
+            <th>Produto</th>
+            <th>Preço</th>
+            <th>Categoria</th>
+            <th>Ações</th>
+          </tr>
+
+        </thead>
+
+        <tbody id="tabelaProdutos">
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+<script>
+
+let produtos =
+JSON.parse(localStorage.getItem("produtos"));
+
+if(!produtos){
+
+  produtos = [
+
+    {
+      nome:"Mouse Gamer",
+      preco:"120",
+      categoria:"Periféricos"
+    },
+
+    {
+      nome:"Teclado RGB",
+      preco:"220",
+      categoria:"Periféricos"
+    }
+
+  ];
+
+  localStorage.setItem(
+    "produtos",
+    JSON.stringify(produtos)
+  );
+
+}
+
+mostrarProdutos();
+
+function mostrarProdutos(){
+
+  let tabela =
+  document.getElementById("tabelaProdutos");
+
+  tabela.innerHTML = "";
+
+  produtos.forEach((produto, index) => {
+
+    tabela.innerHTML += `
+
+      <tr>
+
+        <td>${produto.nome}</td>
+
+        <td>R$ ${produto.preco}</td>
+
+        <td>${produto.categoria}</td>
+
+        <td>
+
+          <button
+            class="editar"
+            onclick="editarProduto(${index})"
+          >
+            Editar
+          </button>
+
+          <button
+            class="excluir"
+            onclick="excluirProduto(${index})"
+          >
+            Excluir
+          </button>
+
+        </td>
+
+      </tr>
+
+    `;
+
+  });
+
+}
+
+function excluirProduto(index){
+
+  produtos.splice(index,1);
+
+  localStorage.setItem(
+    "produtos",
+    JSON.stringify(produtos)
+  );
+
+  mostrarProdutos();
+
+}
+
+function editarProduto(index){
+
+  localStorage.setItem(
+    "editarIndex",
+    index
+  );
+
+  window.location.href =
+  "cadastro-produto.html";
+
+}
+
+function novoProduto(){
+
+  localStorage.removeItem(
+    "editarIndex"
+  );
+
+  window.location.href =
+  "cadastro-produto.html";
+
+}
+
+function sair(){
+
+  localStorage.removeItem(
+    "editarIndex"
+  );
+
+  window.location.href =
+  "login.html";
+
+}
+
+/* MOSTRAR USUÁRIO */
+
+let nomeUsuario =
+localStorage.getItem("usuario");
+
+if(nomeUsuario){
+
+  document.querySelector(".usuario")
+  .innerHTML = `👤 ${nomeUsuario}`;
+
+}
+
+</script>
+
+</body>
+</html>

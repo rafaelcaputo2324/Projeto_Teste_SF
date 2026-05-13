@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="simple-container">
+
+    <div class="logo-small">⚡</div>
+
+    <h1>Cadastrar Usuário</h1>
+
+<form onsubmit="cadastrarUsuario(event)">
+
+  <input
+    type="text"
+    id="nome"
+    placeholder="Digite seu nome"
+    required
+  >
+
+  <input
+    type="email"
+    id="email"
+    placeholder="Digite seu email"
+    required
+  >
+
+  <input
+    type="password"
+    id="senha"
+    placeholder="Digite sua senha"
+    required
+  >
+
+  <button type="submit">
+    Cadastrar
+  </button>
+
+</form>
+
+    <a class="voltar" href="login.html">← Voltar</a>
+
+  </div>
+
+<script>
+
+function cadastrarUsuario(event){
+
+  event.preventDefault();
+
+  let nome =
+  document.getElementById("nome").value;
+
+  let email =
+  document.getElementById("email").value;
+
+  let senha =
+  document.getElementById("senha").value;
+
+  localStorage.setItem(
+    "usuario",
+    nome
+  );
+
+  alert("Usuário cadastrado com sucesso!");
+
+  window.location.href =
+  "login.html";
+
+}
+
+</script>
+
+</body>
+</html>
