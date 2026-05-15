@@ -57,6 +57,17 @@
   </div>
 
   <script>
+    let logado =
+localStorage.getItem("logado");
+
+if(logado !== "true"){
+
+  alert("Acesso negado!");
+
+  window.location.href =
+  "login.html";
+
+}
 
     let produtos =
     JSON.parse(localStorage.getItem("produtos")) || [];
