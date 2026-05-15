@@ -94,6 +94,18 @@
   </div>
 
 <script>
+  
+  let logado =
+localStorage.getItem("logado");
+
+if(logado !== "true"){
+
+  alert("Acesso negado!");
+
+  window.location.href =
+  "login.html";
+
+}
 
 let produtos =
 JSON.parse(localStorage.getItem("produtos"));
@@ -208,6 +220,8 @@ function novoProduto(){
 
 function sair(){
 
+  localStorage.removeItem("logado");
+
   localStorage.removeItem(
     "editarIndex"
   );
@@ -216,8 +230,6 @@ function sair(){
   "login.html";
 
 }
-
-/* MOSTRAR USUÁRIO */
 
 let nomeUsuario =
 localStorage.getItem("usuario");
