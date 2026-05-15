@@ -13,6 +13,12 @@ router.get('/', authMiddleware, (req, res) => {
 router.post('/', authMiddleware, (req, res) => {
   const { name, price } = req.body;
 
+  if (!name || name.trim() === '') {
+    return res.status(400).json({
+      error: 'Nome do produto é obrigatório'
+    });
+  }
+
   db.run(
     'INSERT INTO products(name, price) VALUES(?, ?)',
     [name, price],
